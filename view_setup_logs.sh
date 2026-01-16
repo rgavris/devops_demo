@@ -36,3 +36,4 @@ echo "1. Use DigitalOcean's web console (Access > Launch Droplet Console)"
 echo "2. Add your SSH key to DigitalOcean and try again"
 echo "3. Check the setup script might still be running (can take 5-10 minutes)"
 
+

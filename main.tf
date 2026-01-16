@@ -12,11 +12,16 @@ provider "digitalocean" {
 }
 
 resource "digitalocean_droplet" "server" {
-  image    = "ubuntu-22-04-x64"
-  name     = "my-server"
-  region   = "nyc1"
-  size     = "s-1vcpu-1gb"
-  ssh_keys = [data.digitalocean_ssh_key.selected.id]
+  image     = "ubuntu-22-04-x64"
+  name      = "my-server"
+  region    = "nyc1"
+  size      = "s-1vcpu-1gb"
+  ssh_keys  = [data.digitalocean_ssh_key.selected.id]
+  user_data = <<-EOF
+    #cloud-config
+    package_update: false
+    package_upgrade: false
+  EOF
 }
 
 data "digitalocean_ssh_key" "selected" {
